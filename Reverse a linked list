@@ -1,0 +1,29 @@
+ static SinglyLinkedListNode reverse(SinglyLinkedListNode head) {
+     
+     SinglyLinkedListNode temp=head;
+     int count=0;
+     while(temp!=null){
+         temp=temp.next;
+         count=count+1;
+     }
+     SinglyLinkedListNode temp1=head;
+     while(temp1.next!=null){
+         temp1=temp1.next;
+     }
+     SinglyLinkedListNode ans=temp1;
+     SinglyLinkedListNode t=ans;
+     while(count>1){
+        
+        SinglyLinkedListNode c=head;
+        while(c.next.next!=null){
+            c=c.next;
+        }
+        t.next=c;
+        t=t.next;
+        c.next=null;
+         count--;
+     }
+     head=ans;
+     return head;
+     
+     }
