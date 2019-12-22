@@ -1,0 +1,25 @@
+  static long arrayManipulation(int n, int[][] queries)  {
+      long ans[]=new long[n+1];
+      for(int i=0;i<queries.length;i++){
+          int a=queries[i][0];
+          int b=queries[i][1];
+          int c=queries[i][2];
+          if(a<ans.length && a>=0 ){
+          ans[a]=ans[a]+c;
+          }
+          if(b<ans.length -1 && b>=a && b>=0){
+          ans[b+1]=ans[b+1]-c;
+          }
+      }
+      for(int i=1;i<ans.length;i++){
+          ans[i]=ans[i-1]+ans[i];
+      }
+      long max=Integer.MIN_VALUE;
+      for(int i=0;i<ans.length;i++){
+          if(max<ans[i]){
+              max=ans[i];
+          }
+      }
+      return max;
+      
+      }
