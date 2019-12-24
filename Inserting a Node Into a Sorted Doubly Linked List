@@ -1,0 +1,31 @@
+  static DoublyLinkedListNode sortedInsert(DoublyLinkedListNode head, int data) {
+       if(head.next==null){
+          DoublyLinkedListNode nn=new DoublyLinkedListNode(data);
+          head.next=nn;
+          nn.next=null;
+          nn.prev=head;
+          return head;
+       }
+       if(data<head.data){
+        DoublyLinkedListNode nn=new DoublyLinkedListNode(data);
+        nn.next=head;
+        nn.prev=null;
+        head=nn;
+        return head;
+
+       }
+       if(data>=head.data && data<=head.next.data){
+           DoublyLinkedListNode nn=new DoublyLinkedListNode(data);
+           DoublyLinkedListNode nex=head.next;
+           head.next=nn;
+           nn.prev=head;
+           nn.next=nex;
+           nex.prev=nn;
+           return head;
+       }
+       
+       DoublyLinkedListNode rec=sortedInsert(head.next,data);
+       head.next=rec;
+       return head;
+
+    }
