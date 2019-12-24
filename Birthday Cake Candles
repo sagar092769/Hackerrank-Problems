@@ -1,0 +1,17 @@
+  static int birthdayCakeCandles(int[] ar) {
+        int count=0;
+        long max=Integer.MIN_VALUE;
+        for(int i=0;i<ar.length;i++){
+            if(max<ar[i]){
+                max=ar[i];
+            }
+        }
+        for(int i=0;i<ar.length;i++){
+            if(ar[i]==max){
+                count=count+1;
+            }
+        }
+        return count;
+
+
+    }
