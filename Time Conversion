@@ -1,0 +1,28 @@
+ static String timeConversion(String s) {
+        /*
+         * Write your code here.
+         */
+        String lisTime[]=s.split(":");
+        String hour=lisTime[0];
+        String minute=lisTime[1];
+        String sec=lisTime[2].substring(0,2);
+        String x=lisTime[2].substring(2,4);
+        if(x.equals("AM")){
+            if(hour.equals("12")){
+                hour="00";
+                }    
+                return hour+":"+minute+":"+sec;
+        }
+            else{
+                if(!hour.equals("12")){
+                    int h=Integer.parseInt(hour);
+                    h=h+12;
+                    hour=""+h;
+                }
+                 return hour+":"+minute+":"+sec;
+
+            }
+        
+        
+         
+    }
