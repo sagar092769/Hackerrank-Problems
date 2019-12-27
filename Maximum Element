@@ -1,0 +1,27 @@
+ public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        int max=Integer.MIN_VALUE;
+        Stack<Integer> st=new Stack<>();
+        Stack<Integer> maxst=new Stack<>();
+        for(int i=0;i<n;i++){
+          int querry=scn.nextInt();
+          if(querry==1){
+            int x=scn.nextInt();
+            st.push(x);
+            if(maxst.isEmpty() || x>=maxst.peek()){
+                maxst.push(x);
+            }
+          }else if(querry==2){
+             int r=st.pop();
+             if(r==maxst.peek()){
+                 maxst.pop();
+             }
+
+          }else{
+             System.out.println(maxst.peek());
+          }
+
+        }
+    }
