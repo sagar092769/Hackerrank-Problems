@@ -1,0 +1,24 @@
+  public static int getTotalX(List<Integer> a, List<Integer> b) {
+    // Write your code here
+    Collections.sort(a);
+    Collections.sort(b);
+    int start=a.get(0);
+    int end=b.get(b.size()-1);
+    int ans=0;
+    check:
+    for(int i=start;i<=end;i++){
+        for(int val:a){
+            if(i%val!=0){
+                continue check;
+            }
+        }
+        for(int val:b){
+            if(val%i!=0){
+                continue check;
+            }
+        }
+        ans++;
+    }
+    return ans;
+
+    }
