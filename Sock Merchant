@@ -1,0 +1,23 @@
+static int sockMerchant(int n, int[] ar) {
+     HashMap<Integer,Integer> map=new HashMap<>();
+     for(int i=0;i<ar.length;i++){
+         if(map.containsKey(ar[i])){
+             map.put(ar[i],map.get(ar[i])+1);
+         }
+         else{
+             map.put(ar[i],1);
+         }
+     }
+     int count=0;
+     for(int key:map.keySet()){
+         if(map.get(key)>1){
+         if(map.get(key)%2==0){
+             count=count+map.get(key)/2;
+         }
+         else{
+             count+=(map.get(key)-1)/2;
+         }
+         }
+     }
+return count;
+    }
