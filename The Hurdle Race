@@ -1,0 +1,13 @@
+ static int hurdleRace(int k, int[] height) {
+     int max=0;
+     for(int val:height){
+         max=Math.max(max,val);
+     }
+     if(max>k){
+     return Math.abs(max-k);
+     }
+     else{
+         return 0;
+     }
+
+    }
