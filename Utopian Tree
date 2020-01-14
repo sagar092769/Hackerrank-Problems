@@ -1,0 +1,14 @@
+ static int utopianTree(int n) {
+
+      int t=1;
+      int h=1;
+      while(t<=n){
+          if(t%2==0){
+            h=h+1;
+          }else{
+              h=h*2;
+          }
+          t++;
+      }
+      return h;
+    }
