@@ -1,0 +1,27 @@
+ public static int pickingNumbers(List<Integer> a) {
+    // Write your code here
+    Collections.sort(a); 
+    ArrayList<String> list=new ArrayList<String>();
+    int i=0;int j=i+1;
+    String s="";
+    for(int z=0;z<a.size();z++){
+        s+=a.get(z);
+    }
+    int si=0;
+    while(i<a.size()&&j<a.size()){
+        if(Math.abs(a.get(i)-a.get(j))<=1){
+           j++;
+        }else{
+            list.add(s.substring(si,j));
+            si=j;
+            i=j;
+            j=i+1;
+        }
+    }
+    list.add(s.substring(si,a.size()));
+    int max=Integer.MIN_VALUE;
+    for(int x=0;x<list.size();x++){
+        max=Math.max(max,list.get(x).length());
+    }
+    return max;
+}
